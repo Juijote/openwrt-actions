@@ -1,7 +1,5 @@
 name: n1 docker OpenWrt CI
 on:
-  schedule:
-    - cron:  0 7 * * 6
   push:
     branches:
       - master
@@ -9,8 +7,11 @@ on:
       - '.config.n1.docker'
       - 'n1/**'
       - '.github/workflows/n1-build.yml'
-   watch:
-     types: [started]
+    watch:
+      types: [started]
+    schedule:
+      - cron:  0 7 * * 6
+
 env:
   SSH_ACTIONS: false
   REPO_URL: https://github.com/coolsnowwolf/lede
